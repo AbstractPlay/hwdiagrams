@@ -1,0 +1,58 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://www.abstractplay.com/schemas/homeworldsplay/1-0-0.json#",
+    "title": "Homeworlds Diagram Generator Input",
+    "description": "The schema describing the input required for the Homeworlds diagram generator",
+    "$defs": {
+        "system": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Optional. If not provided, an auto-generated one will be provided.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 25,
+                    "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+                },
+                "owner": {
+                    "description": "Omit in periphery systems",
+                    "enum": ["N", "E", "S", "W"]
+                },
+                "stars": {
+                    "type": "array",
+                    "maxItems": 2,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[RGBY][123]$"
+                    }
+                },
+                "ships": {
+                    "type": "array",
+                    "maxItems": 24,
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[RGBY][123][NESW]$"
+                    }
+                }
+            },
+            "required": ["stars", "ships"],
+            "additionalProperties": false
+        }
+    },
+    "type": "object",
+    "properties": {
+        "numPlayers": {
+            "description": "The number of players in the game. This is only needed if you're rendering a game where one of the players has been eliminated. Otherwise, the number of players will be calculated by the number of homeworld systems.",
+            "type": "number",
+            "minimum": 2,
+            "maximum": 4
+        },
+        "universe": {
+            "description": "The list of systems and ships they contain",
+            "type": "array",
+            "items": { "$ref": "#/$defs/system" }
+        }
+    },
+    "required": ["numPlayers", "universe"],
+    "additionalProperties": false
+}
