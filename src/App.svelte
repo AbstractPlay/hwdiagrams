@@ -44,7 +44,7 @@
             >
             diagrams for illustration and discussion. This tool leverages the
             <a href="https://play.abstractplay.com">Abstract Play</a> rendering engine.
-            All are invited to come play Homeworlds with us! To report issues or suggest improvements, come <a href="https://discord.abstractplay.com">join us on Discord.</a>
+            All are invited to come play Homeworlds with us! To report issues or suggest improvements, come <a href="https://discord.abstractplay.com">join us on Discord.</a> Everything here is done on your local machine. No information is stored on any other servers.
         </p>
     </div>
 
